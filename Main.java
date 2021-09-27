@@ -1,6 +1,6 @@
 
 //package java.util.concurrent.TimeUnit
-// Import the HashMap class
+// leeks
 import java.util.HashMap;
 
 class Main { // Collection of functions and variables (Inherently Public)
