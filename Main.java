@@ -23,12 +23,7 @@ class Main { // Collection of functions and variables (Inherently Public)
         System.out.println(greater_than(1, 2));
         System.out.println(greater_than(2, 1));
         fizzbuzz();
-        test(); // epic commit call
 
-    }
-    
-    public static void test() {
-      System.out.println("epic commit")
     }
 
     public static boolean greater_than(int a, int b) {
