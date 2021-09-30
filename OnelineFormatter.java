@@ -20,6 +20,7 @@ public class OnelineFormatter {
 
         Scanner scan = new Scanner(System.in);
         format_oneline(sep + scan.next());
+        scan.close();
     }
 
     public static void format_oneline(String filename) {
@@ -41,6 +42,7 @@ public class OnelineFormatter {
 
             }
 
+            br.close();
             String output = oneline.toString(); // stringbuilder to string
 
             strip_comments(output); // delete one line comments - todo multiline
