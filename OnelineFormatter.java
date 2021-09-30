@@ -1,6 +1,10 @@
 import java.io.*;
 import java.util.Scanner;
 
+/*
+Program to turn other java programs into one line
+works on windows and linux
+*/
 public class OnelineFormatter {
     public static void main(String[] args) {
         String sep = "\\";
@@ -37,9 +41,9 @@ public class OnelineFormatter {
 
             }
 
-            String output = oneline.toString();
+            String output = oneline.toString(); // stringbuilder to string
 
-            strip_comments(output);
+            strip_comments(output); // delete one line comments - todo multiline
         }
 
         catch (Exception e) {
@@ -48,10 +52,12 @@ public class OnelineFormatter {
     }
 
     public static void strip_comments(String source) {
+		// variables to track state
         boolean commenting = false;
         boolean quotation = false;
 
         StringBuilder output = new StringBuilder();
+		// two chars that store characters next to each other
         char second;
         char first;
         for (int i = 0; i < source.length(); i++) {
@@ -59,6 +65,7 @@ public class OnelineFormatter {
             if (i + 1 < source.length()) {
                 second = source.charAt(i + 1);
 
+				// detect quotes and comments
                 if (first == '"' || second == '\'') {
                     if (!commenting){
                         quotation = !quotation;
@@ -71,11 +78,13 @@ public class OnelineFormatter {
                     }
                 }
 
+				// set flags to false if newline
                 else if (first == '\n') {
                     commenting = false;
                     quotation = false;
                 }
 
+				// only append when not commenting or comments in a quote
                 if (!commenting || quotation) {
                     output.append(first);
                 }
@@ -84,6 +93,7 @@ public class OnelineFormatter {
             }
         }
 
+		// regex matches all newline / whitespace related stuff - replaces all whitespace with one space for imports
         String done = output.toString().replaceAll("\\s+"," ");
         System.out.println(done);
     }
