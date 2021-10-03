@@ -1,6 +1,6 @@
 // This is not goign to be pushed to git
 
-class hwsolutions {
+public class hwsolutions {
   public static void main(String[] args) {
     FizzTern();
   }
